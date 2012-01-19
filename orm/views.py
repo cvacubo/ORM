@@ -51,7 +51,6 @@ def view_relations(request):
     ret_info = []
 
     for parent in parents:
-        #if parent.children:
         if is_has_child(parent):
             print "\n Parent %s has children" % parent.name
 
