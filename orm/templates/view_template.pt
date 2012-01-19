@@ -15,6 +15,7 @@
 </head>
 <body>
 <h3>HTTP Status: <b>OK</b></h3>
+This is for /test
 <div id="footer">
     <div class="footer">&copy; Copyright 2008-2011, Agendaless Consulting.</div>
 </div>
