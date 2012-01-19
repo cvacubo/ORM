@@ -37,6 +37,8 @@ class TestMyView(unittest.TestCase):
         ok_(p0.children[0].is_child("Artem"))
         eq_(p0.children[0].name, "Artem", "Name is not Artem")
 
+        ok_(p0.children[0].is_child("Arthur"))
+
 
         p1 = util.make_parent("Anna Maksapetyan")
         eq_(p1.children, [], "Has children")
