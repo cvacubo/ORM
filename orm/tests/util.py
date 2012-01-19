@@ -1,4 +1,4 @@
-from models import Parent, Child
+from orm.models import Parent, Child
 
 def make_parent_with_child(parent_name, child_name):
     child = Child(child_name)
