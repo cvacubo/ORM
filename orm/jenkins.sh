@@ -14,7 +14,7 @@ pip install fabric
 pip install ./
 
 # Deploy requirements packages
-fab install_requirements -H localhost
+fab -f fabfile.py install_requirements -H localhost
 
 # Run unittests and coverage them
 coverage erase
