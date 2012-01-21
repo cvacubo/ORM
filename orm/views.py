@@ -1,12 +1,11 @@
-#from pyramid.response import Response
 import transaction
 from orm.models import DBSession
 from orm.models import Parent, Child
 
-#def my_view(request):
-#    dbsession = DBSession()
-#    root = dbsession.query(MyModel).filter(MyModel.name==u'root').first()
-#    return {'root':root, 'project':'ORM'}
+def my_view(request):
+    dbsession = DBSession()
+    root = dbsession.query(MyModel).filter(MyModel.name==u'root').first()
+    return {'root':root, 'project':'ORM'}
 
 
 def get_parents(dbsession):
