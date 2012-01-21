@@ -1,5 +1,7 @@
 #!/bin/bash
 
+$VIRT_ENV_HOME = 'orm_env'
+
 # Delete previously virtualenv home
 if [ -d $VIRT_ENV_HOME ]; then
     rm -rf $VIRT_ENV_HOME
@@ -7,7 +9,7 @@ fi
 
 # Create virtual environment
 /usr/bin/virtualenv --no-site-packages orm_env
-. orm_env/bin/activate
+. $VIRT_ENV_HOME/bin/activate
 
 # Install fabric package
 pip install --quiet fabric
