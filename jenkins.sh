@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$VIRT_ENV_HOME = orm_env
+VIRT_ENV_HOME = orm_env
 
 # Delete previously virtualenv home
 if [ -d $VIRT_ENV_HOME ]; then
