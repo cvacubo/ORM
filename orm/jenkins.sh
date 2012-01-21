@@ -14,7 +14,7 @@ pip install --quiet fabric
 pip install --quiet ./
 
 # Deploy requirements packages
-fab -f orm/ install_requirements -H localhost
+fab -f orm/ install_req -H localhost
 
 # Run unittests and coverage them
 coverage erase
