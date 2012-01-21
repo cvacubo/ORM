@@ -1,3 +1,5 @@
 .idea/*
 .coverage
 *.pyc
+orm/*.pyc
+orm/tests/*.pyc
