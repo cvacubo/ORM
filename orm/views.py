@@ -4,8 +4,8 @@ from orm.models import Parent, Child
 
 def my_view(request):
     dbsession = DBSession()
-    root = dbsession.query(MyModel).filter(MyModel.name==u'root').first()
-    return {'root':root, 'project':'ORM'}
+    root = dbsession.query(Parent).filter(Parent.name == u'Alexander').first()
+    return {'root': root.name, 'project':'ORM'}
 
 
 def get_parents(dbsession):

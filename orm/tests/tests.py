@@ -1,8 +1,7 @@
 import unittest
 from nose.tools import ok_, eq_
-from pyramid.config import Configurator
 from pyramid import testing
-from orm.views import view_relations
+from orm.views import view_relations, my_view
 from . import util
 
 def _initTestingDB():
@@ -36,3 +35,10 @@ class TestMyView(unittest.TestCase):
 
         p1 = util.make_parent("Anna Maksapetyan")
         eq_(p1.children, [], "Has children")
+
+    def test_main(self):
+        request = testing.DummyRequest()
+        inf = my_view(request)
+
+        self.assertEquals(inf['root'], 'Alexander')
+        self.assertEquals(inf['project'], 'ORM')
