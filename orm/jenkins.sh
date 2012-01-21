@@ -24,3 +24,6 @@ coverage xml
 # Pep8 and Pylint violations
 pep8 --repeat --ignore=E501,W391 orm | perl -ple 's/: ([WE]\d+)/: [$1]/' > reports/pylint.report
 pylint --rcfile pylint.rc orm/*.py >> reports/pylint.report
+
+
+echo "Jenkins script complete"
