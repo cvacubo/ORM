@@ -10,11 +10,11 @@ fi
 . orm_env/bin/activate
 
 # Install fabric package
-pip install fabric
-pip install ./
+pip install --quiet fabric
+pip install --quiet ./
 
 # Deploy requirements packages
-fab -f fabfile.py install_requirements -H localhost
+fab -f orm/ install_requirements -H localhost
 
 # Run unittests and coverage them
 coverage erase
