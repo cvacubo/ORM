@@ -1,6 +1,9 @@
+from sqlalchemy.orm import joinedload
 import transaction
-from orm.models import DBSession
+from orm.models import DBSession, AppUser, AppUserBalance
 from orm.models import Parent, Child
+
+OK_RESPONSE = 'OK'
 
 def my_view(request):
     dbsession = DBSession()
@@ -68,3 +71,46 @@ def view_relations(request):
 
 
     return ret_info
+
+def view_all_parents(request):
+
+    dbsession = DBSession()
+
+    #parents_and_childs = dbsession.query(Parent).filter_by(name == 'Alexander', id == 1).all()
+    parents_and_childs = dbsession.query(Parent).filter(Parent.id == 1).filter(Parent.name == 'Alexander').scalar()
+
+    print parents_and_childs.__dict__
+
+    #return OK_RESPONSE
+    return parents_and_childs if parents_and_childs is not None else "NONE"
+
+
+def view_balance(request):
+
+    dbsession = DBSession()
+
+    user_id = 1
+    #user = dbsession.query(AppUserBalance).filter(AppUserBalance.id == user_id).scalar()
+    #print user.app_user.__dict__
+
+    user = dbsession.query(AppUserBalance).options(joinedload(AppUserBalance.app_user)).filter(AppUserBalance.app_user_id == user_id).scalar()
+
+    if not user:
+        app_user = AppUser(1, 'artem.com')
+        user = AppUserBalance(app_user, 0)
+        dbsession.add(user)
+        dbsession.flush()
+
+    vbalance = user.balance + 1000
+
+    if vbalance < 0:
+        print "ZERO"
+
+    user.balance = vbalance
+    #print user.name
+    #print user.balance
+
+    print user.__dict__
+    print vbalance
+
+    return "YES"

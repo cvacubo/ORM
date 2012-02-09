@@ -20,5 +20,11 @@ def main(global_config, **settings): # pragma: no cover
     config.add_route('relations', '/test')
     config.add_view('orm.views.view_relations', route_name='relations', renderer='templates/view_template.pt')
 
+    config.add_route('all_parents', '/parents')
+    config.add_view('orm.views.view_all_parents', route_name='all_parents', request_method='GET', renderer='string')
+
+    config.add_route('balance', '/balance')
+    config.add_view('orm.views.view_balance', route_name='balance', request_method='GET', renderer='string')
+
     return config.make_wsgi_app()
 

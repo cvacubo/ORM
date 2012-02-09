@@ -13,7 +13,9 @@ fi
 
 # Install fabric package
 pip install --quiet fabric
-pip install --quiet ./
+#pip install --quiet nose
+#pip install --quiet ./
+python setup.py develop
 
 # Deploy requirements packages
 fab install_req -H localhost
